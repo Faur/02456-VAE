@@ -139,4 +139,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # ==========================
-svhn/data/*
+svhn/data/**/*.pkl
+svhn/data/**/*.cpkl
+svhn/data/**/*.mat
