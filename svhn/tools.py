@@ -39,7 +39,27 @@ def shared_dataset(data_xy, borrow=True):
 	return shared_x, T.cast(shared_y, 'int32')
 
 
-
+def plot_svhn(x, t=10, title='SVHN visualizer', IMG_LEN=32):
+    ### For some reason the img in (3L, 32L, 32L)
+    idx = 0    
+    canvas= np.zeros((IMG_LEN*t, IMG_LEN*t))
+#     canvas= np.zeros((IMG_LEN*t, IMG_LEN*t, 3))
+    for i in range(t):
+        for j in range(t):
+            img = x[idx].reshape((3, IMG_LEN, IMG_LEN))
+            img = np.transpose(img, (1,2,0))
+            img = img.sum(axis=-1)
+#             print(img.shape)
+#             plt.imshow(img, cmap='gray')
+            canvas[i*IMG_LEN:(i+1)*IMG_LEN, j*IMG_LEN:(j+1)*IMG_LEN] = img
+#             canvas[i*IMG_LEN:(i+1)*IMG_LEN, j*IMG_LEN:(j+1)*IMG_LEN, :] = img
+#             plt.show()
+            idx += 1
+    
+    plt.figure(figsize=(7, 7))
+    plt.imshow(canvas, cmap='gray')
+    plt.title(title)
+    plt.show()
 
 
 
