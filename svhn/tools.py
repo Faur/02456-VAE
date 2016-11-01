@@ -13,6 +13,23 @@ def onehot(t, num_classes):
 		out[row, col] = 1
 	return out
 
+def onehot2int(y):
+    """Assumes that y is a num_obs x num_clas ndarray"""
+    try:
+        val = np.where(y == 1)[1]
+        # print(y)
+        # print(val, val.shape, y.shape)
+    except IndexError:
+        val = np.where(y == 1)[0]
+        # print(y)
+        # print(val, val.shape, y.shape)
+    return val
+### onehot2int test
+# print('long test')
+# onehot2int(t_trai[0:10,:])
+# print('short test')
+# onehot2int(t_trai[3,:])
+
 def shared_dataset(data_xy, borrow=True):
 	""" Function that loads the dataset into shared variables
 
@@ -39,9 +56,10 @@ def shared_dataset(data_xy, borrow=True):
 	return shared_x, T.cast(shared_y, 'int32')
 
 
-def plot_svhn(x, t=10, title='SVHN visualizer', IMG_LEN=32, gray = False):
-    
+def plot_svhn(x, y=np.array([]), y_onehot=True, t=10, title='SVHN visualizer', IMG_LEN=32, gray = False):
     idx = [np.random.randint(0, x.shape[0]) for i in range(t*t)]
+
+    labels = np.zeros((t, t))
 
     if gray:
         canvas= np.zeros((IMG_LEN*t, IMG_LEN*t))
@@ -55,7 +73,14 @@ def plot_svhn(x, t=10, title='SVHN visualizer', IMG_LEN=32, gray = False):
                 canvas[i*IMG_LEN:(i+1)*IMG_LEN, j*IMG_LEN:(j+1)*IMG_LEN] = img
             else:
                 canvas[i*IMG_LEN:(i+1)*IMG_LEN, j*IMG_LEN:(j+1)*IMG_LEN, :] = img
-    
+
+            if not y.shape[0] == 0:
+#                 print(onehot2int(y[idx[i*t + j]]))
+                if y_onehot:
+                    labels[i, j] = onehot2int(y[idx[i*t + j]])
+                else:
+                    labels[i, j] = y[idx[i*t + j]]
+
     plt.figure(figsize=(7, 7))
     if gray:
         plt.imshow(canvas, cmap='gray')
@@ -63,6 +88,10 @@ def plot_svhn(x, t=10, title='SVHN visualizer', IMG_LEN=32, gray = False):
         plt.imshow(canvas)
     plt.title(title)
     plt.show()
+    
+    if not y.shape[0] == 0:
+        return(labels)
+
 
 
 
