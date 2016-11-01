@@ -142,3 +142,4 @@ $RECYCLE.BIN/
 svhn/data/**/*.pkl
 svhn/data/**/*.cpkl
 svhn/data/**/*.mat
+svhn/*.png
