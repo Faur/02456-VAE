@@ -1,5 +1,5 @@
 # Installation Guide
-> Installation Guide is maintained by Toke Faurby, [Toke.Faurby@gmail.com](mailto:toke.faurby@gmail.com), and Kristoffer Linder-Steinlein, [XXX]().
+> Installation Guide is maintained by Toke Faurby, [Toke.Faurby@gmail.com](mailto:toke.faurby@gmail.com), and Kristoffer Linder-Steinlein, [linder2411@gmail.com](mailto:linder2411@gmail.com).
 
 For this course we will be usin Amazon Web Services ([AWS](https://aws.amazon.com/products/)). AWS provide on-deman computing facilities. Most notably they provide servers with the powerfull [NVIDIA Tesla K80](http://www.nvidia.com/object/tesla-k80.html) graphics cards, which we will be using for this course. These servers are called [p2.xlarge](https://aws.amazon.com/ec2/instance-types/p2/), and cost about 1 \$US per hour of runtime. For large tasks it is possible to save money by using [spot instances](https://aws.amazon.com/ec2/spot/pricing/). A spot instances let you bid on spare Amazon EC2 instances to name your own price for compute capacity. The Spot price fluctuates based on the supply and demand of available EC2 capacity. Spot prices are generally a lot lower, e.g. p2.xlarge costs about 0.2 \$US
 
@@ -17,7 +17,7 @@ The servers and material for this course havn't been made with security in mind,
 You only need to set up the system once. Once setup is complete simply follow the instrictions in Daily Use.
 
 ### Windows People
-If you are using Windows you must download and install Git Bash from [here](https://git-scm.com/downloads). [AWS CodeCommit](http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-https-windows.html#setting-up-https-windows-install-git) supports Git versions 1.7.9 and later. We won't use the Git capabilities, we simply need to use it as Bash. 
+If you are using Windows you must download and install Git Bash from [here](https://git-scm.com/downloads). [AWS CodeCommit](http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-https-windows.html#setting-up-https-windows-install-git) supports Git versions 1.7.9 and later. We won't use the Git capabilities, we simply need to use it as a Bash terminal. 
 
 The settings aren't that important, but suggested settings are:
 * Check `Use a TrueType font in all consoles`. 
@@ -43,11 +43,11 @@ Install [AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/installing.htm
 
     pip install awscli --ignore-installed six
 
-Once installed we need to configure it. We have created an user for you with the privleges to start and stop a server (read more [here](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html)):
+Once installed we need to configure it. We have created an user for you with the privleges to start and stop a server (read more [here](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html)). 
 
     aws configure
-    AWS Access Key ID []: AKIAIJ2A6YHGYY5FQ76Q 
-    AWS Secret Access Key []: 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
+    AWS Access Key ID []: <Access_ID>
+    AWS Secret Access Key []: <Secret_Key>
     Default region name []: eu-west-1
 
 Leave the rest as their default (just press enter).
