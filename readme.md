@@ -116,10 +116,13 @@ You should now see an overview of the course material. Enjoy!
 The servers that you used will be deleted.
 
 
-The privleges you were granted have been revoked (the things you setup through `aws config`). If you want to continue working with AWS sign up, and create your own account [here](https://aws.amazon.com/)
+The privleges you were granted have been revoked (the things you setup through `aws config`). If you want to continue working with AWS sign up, and create your own account [here](https://aws.amazon.com/). If you want to keep the exercises, and the work that you did 
 
+    scp -i p2-xlarge.pem -r icarus@<publicDNS>:~/02456-deep-learning/ <descitation folder>
 
-Guy on Reddit with a [sweet AMI](https://www.reddit.com/r/MachineLearning/comments/5af76s/p_public_aws_gpuoptimized_deep_learning_ami/), that we based our AMI on.
+set `<destination folder` to `.` if you want to download it to the current folder
+
+If you would like to continue working with AWS there are many AMI's online where a lot of the set necessary software is pre-installed. The AMI that was used for this course is based on this [one](https://github.com/Miej/GoDeeper).
 
 
 ## Going Further
