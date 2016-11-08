@@ -97,6 +97,7 @@ We have now started a jupyter server, and are hosting it via the AWS server. Vie
 
     https://<publicIP>:8888
 
+If you have multiple instances of Jupyter running (or other processes using your ports) the `8888` might be a different number. Check the output in the terminal if the above doens't work.
 We have a self-signed certificate, so your browser will most likely come with a security complaint. Click 'advanced' (or something similar) and click 'proceed'.
 
 The password is `42`.
@@ -108,16 +109,12 @@ You should now see an overview of the course material. Enjoy!
 
     aws ec2 stop-instances --instance-ids <AWS instance ID>
 
-### Hints
-
-** ############### File IO, Terminal, VNC viewer **
 
 
 ## After the course
 
-The AMI used for this course has been made public.
+The servers that you used will be deleted.
 
-**##################### DO SUCH THAT IT DOESN'T HAVE ACCES TO ANY OF OUR STUFF**
 
 The privleges you were granted have been revoked (the things you setup through `aws config`). If you want to continue working with AWS sign up, and create your own account [here](https://aws.amazon.com/)
 
