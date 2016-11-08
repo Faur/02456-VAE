@@ -125,6 +125,3 @@ set `<destination folder` to `.` if you want to download it to the current folde
 If you would like to continue working with AWS there are many AMI's online where a lot of the set necessary software is pre-installed. The AMI that was used for this course is based on this [one](https://github.com/Miej/GoDeeper).
 
 
-## Going Further
-
-THINGS SUCK ON WINDOWS, but here are some links
