@@ -43,7 +43,7 @@ Install [AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/installing.htm
 
     pip install awscli --ignore-installed six
 
-Once installed we need to configure it. We have created an user for you with the privleges to start and stop a server (read more [here](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html)). 
+Once installed we need to configure it. We have created an user for you with the privleges to start and stop a server (read more [here](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html)). You will recieve your `<Access_ID>` and `<Secret_Key>` separately.
 
     aws configure
     AWS Access Key ID []: <Access_ID>
