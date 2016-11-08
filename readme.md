@@ -1,3 +1,5 @@
+# DEPRICATED, THIS GUIDE IS NO LONGER UPDATED
+
 # Installation Guide
 > Installation Guide is maintained by Toke Faurby, [Toke.Faurby@gmail.com](mailto:toke.faurby@gmail.com), and Kristoffer Linder-Steinlein, [linder2411@gmail.com](mailto:linder2411@gmail.com).
 
