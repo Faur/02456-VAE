@@ -14,7 +14,7 @@ The servers and material for this course havn't been made with security in mind,
 
 ## Setup
 
-You only need to set up the system once. Once setup is complete simply follow the instrictions in _Daily Use_.
+You only need to set up the system once. Once setup is complete simply follow the instrictions in *Daily Use*.
 
 ### Windows People
 If you are using Windows you must download and install Git Bash from [here](https://git-scm.com/downloads). [AWS CodeCommit](http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-https-windows.html#setting-up-https-windows-install-git) supports Git versions 1.7.9 and later. We won't use the Git capabilities, we simply need to use it as a Bash terminal. 
