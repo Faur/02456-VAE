@@ -56,19 +56,22 @@ def shared_dataset(data_xy, borrow=True):
 	return shared_x, T.cast(shared_y, 'int32')
 
 
-def plot_svhn(x, y=np.array([]), y_onehot=True, t=10, title='SVHN visualizer', IMG_LEN=32, gray = False):
+def plot_svhn(x, y=np.array([]), y_onehot=True, t=10,
+        IMG_LEN=32, IMG_DEPTH=3, cmap='gray'):
+    
     idx = [np.random.randint(0, x.shape[0]) for i in range(t*t)]
 
     labels = np.zeros((t, t))
-
-    if gray:
+        
+    if cmap == 'gray':
         canvas= np.zeros((IMG_LEN*t, IMG_LEN*t))
     else:
         canvas= np.zeros((IMG_LEN*t, IMG_LEN*t, 3))
+
     for i in range(t):
         for j in range(t):
-            img = x[idx[i*t + j]].reshape((IMG_LEN, IMG_LEN, 3))
-            if gray:
+            img = x[idx[i*t + j]].reshape((IMG_LEN, IMG_LEN, IMG_DEPTH))
+            if cmap == 'gray':
                 img = img.sum(axis=-1)
                 canvas[i*IMG_LEN:(i+1)*IMG_LEN, j*IMG_LEN:(j+1)*IMG_LEN] = img
             else:
@@ -81,17 +84,7 @@ def plot_svhn(x, y=np.array([]), y_onehot=True, t=10, title='SVHN visualizer', I
                 else:
                     labels[i, j] = y[idx[i*t + j]]
 
-    plt.figure(figsize=(7, 7))
-    if gray:
-        plt.imshow(canvas, cmap='gray')
-    else:
-        plt.imshow(canvas)
-    plt.title(title)
-    plt.show()
-    
-    if not y.shape[0] == 0:
-        return(labels)
-
+    return canvas, labels
 
 
 
