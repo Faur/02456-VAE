@@ -57,18 +57,21 @@ def shared_dataset(data_xy, borrow=True):
 
 
 def plot_svhn(x, y=np.array([]), y_onehot=True, t=10,
-        IMG_LEN=32, IMG_DEPTH=3, cmap='gray'):
-    
-    idx = [np.random.randint(0, x.shape[0]) for i in range(t*t)]
-
-    labels = np.zeros((t, t))
-        
-    if cmap == 'gray':
-        canvas= np.zeros((IMG_LEN*t, IMG_LEN*t))
+        IMG_LEN=32, IMG_DEPTH=3, cmap='gray',t2=None, choose_random=True):
+    ##t2 not working yet
+    if t2==None:
+        t2=t
+    if choose_random==True:
+        idx = [np.random.randint(0, x.shape[0]) for i in range(t*t)]
     else:
-        canvas= np.zeros((IMG_LEN*t, IMG_LEN*t, 3))
-
-    for i in range(t):
+        idx=range(t*t2)
+    
+    labels = np.zeros((t, t2))
+    if cmap == 'gray':
+        canvas= np.zeros((IMG_LEN*t, IMG_LEN*t2))
+    else:
+        canvas= np.zeros((IMG_LEN*t, IMG_LEN*t2, 3))
+    for i in range(t2):
         for j in range(t):
             img = x[idx[i*t + j]].reshape((IMG_LEN, IMG_LEN, IMG_DEPTH))
             if cmap == 'gray':
@@ -80,9 +83,9 @@ def plot_svhn(x, y=np.array([]), y_onehot=True, t=10,
             if not y.shape[0] == 0:
 #                 print(onehot2int(y[idx[i*t + j]]))
                 if y_onehot:
-                    labels[i, j] = onehot2int(y[idx[i*t + j]])
+                    labels[i, j] = onehot2int(y[idx[i*t2 + j]])
                 else:
-                    labels[i, j] = y[idx[i*t + j]]
+                    labels[i, j] = y[idx[i*t2 + j]]
 
     return canvas, labels
 
