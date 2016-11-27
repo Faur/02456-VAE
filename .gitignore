@@ -143,3 +143,4 @@ svhn/data/**/*.pkl
 svhn/data/**/*.cpkl
 svhn/data/**/*.mat
 svhn/*.png
+svhn/archive/basic_svhn_SUPVAE.ipynb
